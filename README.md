@@ -1,6 +1,12 @@
 # quizando_app
 
-A new Flutter project.
+A Quiz app developed using Flutter. 
+
+
+## Purpose 
+
+The Purpose of the project is to use State Management and Smooth transitions between Pages.
+
 
 ## Getting Started
 
