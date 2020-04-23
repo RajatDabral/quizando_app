@@ -15,7 +15,6 @@ class BuildCategoryPage {
           child: Container(
             height: MediaQuery.of(context).size.height * .95,
             width: MediaQuery.of(context).size.width * .98,
-            // color: Colors.yellow,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
