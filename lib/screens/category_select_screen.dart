@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import '../pages/build_category_page.dart';
 
 import '../providers/categories.dart';
@@ -12,14 +13,12 @@ class CategorySelectScreen extends StatelessWidget {
     final catProvider =
         Provider.of<Categories>(context, listen: false).categoryItems;
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: PageView.builder(
         itemCount: catProvider.length,
         itemBuilder: (ctx, index) => BuildCategoryPage(
-                context: context,
-                name: catProvider[index].name,
-                url: catProvider[index].imageUrl)
-            .buildCatPage(),
+          context: context,
+          id: catProvider[index].id,
+        ).buildCatPage(),
       ),
     );
   }
