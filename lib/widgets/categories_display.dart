@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../providers/categories.dart';
 import 'package:provider/provider.dart';
 
+import '../screens/category_select_screen.dart';
+import '../providers/categories.dart';
+
 class CategoriesDisplay extends StatelessWidget {
-  final int _gridLength = 4;
+  final int _gridLength = 6;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,14 @@ class CategoriesDisplay extends StatelessWidget {
           height: 10,
         ),
         Container(
-          height: 400,
-          // color: Colors.red,
+          height: MediaQuery.of(context).size.height * .55,
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          decoration: BoxDecoration(
+            // color: Colors.red,
+            borderRadius: BorderRadius.circular(10),
+
+            //TODO EDIT SHADOW
+          ),
           child: GridView.builder(
             itemCount: _gridLength,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -34,15 +41,34 @@ class CategoriesDisplay extends StatelessWidget {
               mainAxisSpacing: 10,
             ),
             itemBuilder: (ctx, index) => Container(
-              height: 200,
-              color: Colors.yellow,
-              child: Text(
-                categoryProvider[index].name,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    offset: Offset(
+                      0.0,
+                      2.0,
+                    ),
+                    blurRadius: 4.0,
+                  )
+                ],
+                image: DecorationImage(
+                  image: NetworkImage(
+                    categoryProvider[index].imageUrl,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                child: Text(
+                  categoryProvider[index].name,
+                ),
               ),
             ),
           ),
         ),
-        SizedBox( 
+        SizedBox(
           height: 10.0,
         ),
         GestureDetector(
@@ -50,7 +76,9 @@ class CategoriesDisplay extends StatelessWidget {
             "See all",
             style: TextStyle(fontSize: 20.0),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(CategorySelectScreen.routeName);
+          },
         )
       ],
     );
