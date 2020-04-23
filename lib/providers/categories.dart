@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Categories with ChangeNotifier {
-  final String id;
+  final int id;
   final String name;
 
   Categories({this.id, this.name});
@@ -14,7 +14,7 @@ class Categories with ChangeNotifier {
     const url = "https://opentdb.com/api_category.php";
     final response = await http.get(url);
     final category = json.decode(response.body)['trivia_categories']
-        as List<Map<String, String>>;
+        as List<dynamic>;
 
     for (int i = 0; i < category.length; i++) {
       _categoryItems.add(

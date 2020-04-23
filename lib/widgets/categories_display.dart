@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../providers/categories.dart';
+import 'package:provider/provider.dart';
+
 class CategoriesDisplay extends StatelessWidget {
+  final int _gridLength = 4;
+
   @override
   Widget build(BuildContext context) {
+    final categoryProvider =
+        Provider.of<Categories>(context, listen: false).categoryItems;
     return Column(
       children: <Widget>[
         Text(
@@ -19,39 +26,31 @@ class CategoriesDisplay extends StatelessWidget {
         Container(
           height: 400,
           // color: Colors.red,
-          child: GridView.count(
-            padding: EdgeInsets.all(10),
-            crossAxisCount: 2,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
-            children: <Widget>[
-              Container(
-                color: Colors.yellow,
+          child: GridView.builder(
+            itemCount: _gridLength,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+            ),
+            itemBuilder: (ctx, index) => Container(
+              height: 200,
+              color: Colors.yellow,
+              child: Text(
+                categoryProvider[index].name,
               ),
-              Container(
-                color: Colors.green,
-              ),
-              Container(
-                color: Colors.black,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-            ],
+            ),
           ),
         ),
-        SizedBox(
+        SizedBox( 
           height: 10.0,
         ),
-        Text(
-          "See all",
-          style: TextStyle(fontSize: 20.0),
+        GestureDetector(
+          child: Text(
+            "See all",
+            style: TextStyle(fontSize: 20.0),
+          ),
+          onTap: () {},
         )
       ],
     );

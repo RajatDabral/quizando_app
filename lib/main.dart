@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personality_app/models/categories.dart';
+import './providers/categories.dart';
 import 'package:provider/provider.dart';
 
 import './screens/loading_screen.dart';

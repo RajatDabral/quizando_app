@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:personality_app/models/categories.dart';
+import '../providers/categories.dart';
 import 'package:personality_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import '../providers/quiz_provider.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
