@@ -33,7 +33,6 @@ class CategoriesDisplay extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
 
             //TODO EDIT SHADOW
-
           ),
           child: GridView.builder(
             itemCount: _gridLength,
@@ -42,7 +41,9 @@ class CategoriesDisplay extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
-            itemBuilder: (ctx, index) => CategoryTile(id: catProvider[index].id),
+            itemBuilder: (ctx, index) => CategoryTile(
+              id: catProvider[index].id,
+            ),
           ),
         ),
         SizedBox(

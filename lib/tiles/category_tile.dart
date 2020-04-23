@@ -17,10 +17,13 @@ class CategoryTile extends StatelessWidget {
       child: Image.network(
         currentCategory.imageUrl,
       ),
-      footer: GridTileBar( 
+      footer: GridTileBar(
         backgroundColor: Colors.black26,
-        title: Text(currentCategory.name, textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 15),),
+        title: Text(
+          currentCategory.name,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 18),
+        ),
       ),
     );
   }
