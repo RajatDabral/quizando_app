@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screens/category_select_screen.dart';
 import './providers/categories.dart';
 import 'package:provider/provider.dart';
 
@@ -18,13 +19,16 @@ class QuizandoApp extends StatelessWidget {
           create: (ctx) => QuizProvider(),
         ),
         ChangeNotifierProvider(
-          create:  (ctx) => Categories(),
+          create: (ctx) => Categories(),
         ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Personality App",
         home: LoadingScreen(),
+        routes: {
+          CategorySelectScreen.routeName: (ctx) => CategorySelectScreen(),
+        },
       ),
     );
   }
