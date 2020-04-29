@@ -10,11 +10,18 @@ class LoadingScreen extends StatefulWidget {
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingScreenState extends State<LoadingScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<TextStyle> _animation;
+
   void setUpData() async {
     // final checkProvider = Provider.of<QuizProvider>(context, listen: false);
     // await checkProvider.getData();
 
+    await _controller.forward();
+
+    ///Waiting for animation to complete.
     final categoryProvider = Provider.of<Categories>(context, listen: false);
     await categoryProvider.getCategories();
 
@@ -22,10 +29,31 @@ class _LoadingScreenState extends State<LoadingScreen> {
         .push(MaterialPageRoute(builder: (ctx) => HomeScreen()));
   }
 
+  int colorInd = 0;
+
   @override
   void initState() {
     super.initState();
+    _controller = AnimationController(
+        duration: Duration(milliseconds: 3000), vsync: this);
+    _animation = TextStyleTween(
+        begin: TextStyle(
+          fontSize: 0,
+        ),
+        end: TextStyle(
+          fontSize: 40,
+        )).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+
     setUpData();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -49,7 +77,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 "गरुड़",
                 style: TextStyle(
                   color: Color(0xFFDEB609),
-                  fontSize: 40.0,
+                  fontSize: _animation.value.fontSize,
                 ),
               ),
             ],
