@@ -14,24 +14,29 @@ class CategoryTile extends StatelessWidget {
         Provider.of<Categories>(context, listen: false).categoryItems;
     final currentCategory =
         catProvider.firstWhere((catItem) => catItem.id == id);
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (ctx) =>
-              BuildCategoryPage(id: currentCategory.id, context: ctx)
-                  .buildCatPage(),
-        ));
-      },
-      child: GridTile(
-        child: Image.network(
-          currentCategory.imageUrl,
-        ),
-        footer: GridTileBar(
-          backgroundColor: Colors.black26,
-          title: Text(
-            currentCategory.name,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18),
+    return Material(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (ctx) =>
+                BuildCategoryPage(id: currentCategory.id, context: ctx)
+                    .buildCatPage(),
+          ));
+        },
+        child: GridTile(
+          child: Image.network(
+            currentCategory.imageUrl,
+            fit: BoxFit.cover,
+          ),
+          footer: GridTileBar(
+            backgroundColor: Colors.black87,
+            title: Text(
+              currentCategory.name,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.visible,
+              style: TextStyle(fontSize: 18),
+              softWrap: true,
+            ),
           ),
         ),
       ),

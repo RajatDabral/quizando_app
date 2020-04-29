@@ -25,24 +25,27 @@ class CategoriesDisplay extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Container(
-          height: MediaQuery.of(context).size.height * .55,
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          decoration: BoxDecoration(
-            // color: Colors.red,
-            borderRadius: BorderRadius.circular(10),
+        Hero(
+          tag: 'imageHero',
+          child: Container(
+            height: MediaQuery.of(context).size.height * .55,
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            decoration: BoxDecoration(
+              // color: Colors.red,
+              borderRadius: BorderRadius.circular(10),
 
-            //TODO EDIT SHADOW
-          ),
-          child: GridView.builder(
-            itemCount: _gridLength,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              //TODO EDIT SHADOW
             ),
-            itemBuilder: (ctx, index) => CategoryTile(
-              id: catProvider[index].id,
+            child: GridView.builder(
+              itemCount: _gridLength,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              itemBuilder: (ctx, index) => CategoryTile(
+                id: catProvider[index].id,
+              ),
             ),
           ),
         ),

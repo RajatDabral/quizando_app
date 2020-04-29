@@ -54,25 +54,26 @@ class BuildCategoryPage {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: SafeArea(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF8B4BAF),
-                Color(0xFF914EE5),
-                Color(0xFF3A9ECD),
-                Color(0xFFE36AE1),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF8B4BAF),
+              Color(0xFF914EE5),
+              Color(0xFF3A9ECD),
+              Color(0xFFE36AE1),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          child: Column(
-            children: <Widget>[
-              Container(
+        ),
+        child: Column(
+          children: <Widget>[
+            Hero(
+              tag: 'imageHero',
+              child: Container(
                 // margin: EdgeInsets.symmetric(horizontal: 8),
                 height: MediaQuery.of(context).size.height * .40,
                 width: MediaQuery.of(context).size.width,
@@ -89,34 +90,34 @@ class BuildCategoryPage {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "How much can you take it",
-                      style: TextStyle(fontSize: 30),
+            ),
+            SizedBox(height: 20),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "How much can you take it",
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        raisedButton(
+                            'NOOB', Difficulty.Easy, _currentCatItem.id),
+                        raisedButton(
+                            'PRO', Difficulty.Medium, _currentCatItem.id),
+                        raisedButton(
+                            'MASTER', Difficulty.Hard, _currentCatItem.id),
+                      ],
                     ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          raisedButton(
-                              'NOOB', Difficulty.Easy, _currentCatItem.id),
-                          raisedButton(
-                              'PRO', Difficulty.Medium, _currentCatItem.id),
-                          raisedButton(
-                              'MASTER', Difficulty.Hard, _currentCatItem.id),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
