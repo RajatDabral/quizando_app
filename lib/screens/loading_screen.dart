@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../providers/categories.dart';
 import 'package:personality_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -60,14 +61,12 @@ class _LoadingScreenState extends State<LoadingScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      //  appBar: AppBar(),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SpinKitCubeGrid(
-                // color: Color(0xFFDEB609),
                 color: Theme.of(context).accentColor,
                 size: 100,
               ),
@@ -76,10 +75,11 @@ class _LoadingScreenState extends State<LoadingScreen>
               ),
               Text(
                 "गरुड़",
-                style: TextStyle(
-                  // color: Color(0xFFDEB609),
-                  color: Theme.of(context).accentColor,
-                  fontSize: _animation.value.fontSize,
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
+                    fontSize: _animation.value.fontSize,
+                  ),
                 ),
               ),
             ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
-import 'package:personality_app/providers/quiz_provider.dart';
+import '../providers/quiz_provider.dart';
 import '../providers/categories.dart';
 import 'package:provider/provider.dart';
 
@@ -35,18 +34,7 @@ class BuildCategoryPage {
         catProvider.firstWhere((catItem) => catItem.id == id);
 
     return Scaffold(
-      appBar: GradientAppBar(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF8B4BAF),
-            Color(0xFF914EE5),
-            Color(0xFF3A9ECD),
-            Color(0xFFE36AE1),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.centerRight,
-        ),
-        elevation: 0,
+      appBar: AppBar(
         title: Text(_currentCatItem.name),
         centerTitle: true,
         leading: IconButton(

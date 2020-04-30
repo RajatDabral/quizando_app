@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
-import 'package:personality_app/tiles/category_tile.dart';
+import '../tiles/category_tile.dart';
 
 import '../providers/categories.dart';
 import 'package:provider/provider.dart';
@@ -13,17 +12,7 @@ class CategorySelectScreen extends StatelessWidget {
     final catProvider =
         Provider.of<Categories>(context, listen: false).categoryItems;
     return Scaffold(
-      appBar: GradientAppBar(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF8B4BAF),
-            Color(0xFF914EE5),
-            Color(0xFF3A9ECD),
-            Color(0xFFE36AE1),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.centerRight,
-        ),
+      appBar: AppBar(
         elevation: 10,
         title: Text("Categories"),
         centerTitle: true,

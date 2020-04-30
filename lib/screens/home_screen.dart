@@ -1,91 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:personality_app/widgets/categories_display.dart';
-import '../widgets/result_display.dart';
 
 import '../widgets/menu_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
+  ///using global key for Opening Drawer.
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(300),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-          ),
-          child: Center(
-            child: Text(
-              'Quizando',
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
-        ),
-      ),
-      drawer: MenuDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 10.0,
-                left: 10,
-                right: 10.0,
+    final divHeight = (MediaQuery.of(context).size.height / 2) * .60;
+
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(divHeight),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(divHeight * .8),
+                bottomRight: Radius.circular(divHeight * .8),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+            child: Column(children: <Widget>[
+              Row(
                 children: <Widget>[
-                  Text(
-                    "My Results",
-                    style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.2),
-                  ),
-                  Text(
-                    "See All",
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  IconButton(
+                    icon: Icon(Icons.menu,),
+                    color: Theme.of(context).iconTheme.color,
+                    iconSize: Theme.of(context).iconTheme.size,
+                    onPressed: () {
+                      _scaffoldKey.currentState.openDrawer();
+                    },
+                  )
                 ],
               ),
-            ),
-            ResultDisplay(),
-            SizedBox(
-              height: 10,
-            ),
-            CategoriesDisplay(),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              height: 100,
-              // color: Colors.green,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: Card(
-                  elevation: 10,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Icon(
-                          Icons.redeem,
-                          size: 50,
-                        ),
-                        Text("Reward Points"),
-                      ],
-                    ),
-                  ),
+              Center(
+                child: Text(
+                  'Quizando',
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 40,
-            )
-          ],
+            ]),
+          ),
+        ),
+        drawer: MenuDrawer(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Center(child: Text('Hello'))
+            ],
+          ),
         ),
       ),
     );

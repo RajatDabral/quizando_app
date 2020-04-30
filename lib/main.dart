@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import './screens/category_select_screen.dart';
-import './providers/categories.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import './providers/categories.dart';
+import './screens/category_select_screen.dart';
 import './screens/loading_screen.dart';
 import './providers/quiz_provider.dart';
 
 void main() => runApp(QuizandoApp());
 
-final primaryColor = Color(0xFF5F4B8BFF);
-final secondaryColor = Color(0xFFE69A8DFF);
+final primaryColor = Color.fromRGBO(97, 80, 139, 1);
+final secondaryColor = Color.fromRGBO(230, 154, 141, 1);
 
 class QuizandoApp extends StatelessWidget {
   @override
@@ -28,10 +29,14 @@ class QuizandoApp extends StatelessWidget {
         title: 'Quizando',
         theme: ThemeData(
           textTheme: TextTheme(
-            headline1: TextStyle(
+            headline4: GoogleFonts.merienda(
               color: secondaryColor,
               fontWeight: FontWeight.w600,
             ),
+          ),
+          iconTheme: IconThemeData(
+            color: secondaryColor,
+            size: 35,
           ),
           primaryColor: primaryColor,
           accentColor: secondaryColor,
