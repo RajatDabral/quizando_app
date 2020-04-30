@@ -8,7 +8,8 @@ import './providers/quiz_provider.dart';
 
 void main() => runApp(QuizandoApp());
 
-final appBarColor = Color(0xFF8B4BAF);
+final primaryColor = Color(0xFF5F4B8BFF);
+final secondaryColor = Color(0xFFE69A8DFF);
 
 class QuizandoApp extends StatelessWidget {
   @override
@@ -24,7 +25,17 @@ class QuizandoApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Personality App",
+        title: 'Quizando',
+        theme: ThemeData(
+          textTheme: TextTheme(
+            headline1: TextStyle(
+              color: secondaryColor,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          primaryColor: primaryColor,
+          accentColor: secondaryColor,
+        ),
         home: LoadingScreen(),
         routes: {
           CategorySelectScreen.routeName: (ctx) => CategorySelectScreen(),

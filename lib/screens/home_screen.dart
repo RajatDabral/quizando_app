@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:personality_app/widgets/categories_display.dart';
 import '../widgets/result_display.dart';
-import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 import '../widgets/menu_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF3F4EB),
-      appBar: GradientAppBar(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF8B4BAF),
-            Color(0xFF914EE5),
-            Color(0xFF3A9ECD),
-            Color(0xFFE36AE1),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.centerRight,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(300),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+          ),
+          child: Center(
+            child: Text(
+              'Quizando',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
         ),
-        elevation: 10,
       ),
       drawer: MenuDrawer(),
       body: SingleChildScrollView(

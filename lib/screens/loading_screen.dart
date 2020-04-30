@@ -59,7 +59,7 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF121215),
+      backgroundColor: Theme.of(context).primaryColor,
       //  appBar: AppBar(),
       body: SafeArea(
         child: Center(
@@ -67,7 +67,8 @@ class _LoadingScreenState extends State<LoadingScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SpinKitCubeGrid(
-                color: Color(0xFFDEB609),
+                // color: Color(0xFFDEB609),
+                color: Theme.of(context).accentColor,
                 size: 100,
               ),
               SizedBox(
@@ -76,7 +77,8 @@ class _LoadingScreenState extends State<LoadingScreen>
               Text(
                 "गरुड़",
                 style: TextStyle(
-                  color: Color(0xFFDEB609),
+                  // color: Color(0xFFDEB609),
+                  color: Theme.of(context).accentColor,
                   fontSize: _animation.value.fontSize,
                 ),
               ),
