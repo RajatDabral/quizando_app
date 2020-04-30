@@ -11,6 +11,7 @@ void main() => runApp(QuizandoApp());
 
 final primaryColor = Color.fromRGBO(97, 80, 139, 1);
 final secondaryColor = Color.fromRGBO(230, 154, 141, 1);
+final scaffoldColor  = Color(0xfff5f2d0);
 
 class QuizandoApp extends StatelessWidget {
   @override
@@ -38,6 +39,7 @@ class QuizandoApp extends StatelessWidget {
             color: secondaryColor,
             size: 35,
           ),
+          scaffoldBackgroundColor: scaffoldColor,
           primaryColor: primaryColor,
           accentColor: secondaryColor,
         ),
