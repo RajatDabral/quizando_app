@@ -8,7 +8,7 @@ import '../widgets/menu_drawer.dart';
 class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffF3F4EB),
       appBar: GradientAppBar(
         gradient: LinearGradient(
           colors: [

@@ -31,10 +31,7 @@ class CategoriesDisplay extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .55,
             padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             decoration: BoxDecoration(
-              // color: Colors.red,
               borderRadius: BorderRadius.circular(10),
-
-              //TODO EDIT SHADOW
             ),
             child: GridView.builder(
               itemCount: _gridLength,

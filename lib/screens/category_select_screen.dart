@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:personality_app/tiles/category_tile.dart';
-import '../pages/build_category_page.dart';
 
 import '../providers/categories.dart';
 import 'package:provider/provider.dart';
