@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../providers/categories.dart';
-import 'package:personality_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
-
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../widgets/bottom_bar.dart';
+import '../providers/categories.dart';
+
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -26,8 +27,7 @@ class _LoadingScreenState extends State<LoadingScreen>
     final categoryProvider = Provider.of<Categories>(context, listen: false);
     await categoryProvider.getCategories();
 
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (ctx) => HomeScreen()));
+    Navigator.of(context).pushReplacementNamed(BottomBar.routeName);
   }
 
   int colorInd = 0;

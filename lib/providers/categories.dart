@@ -10,7 +10,7 @@ class Categories with ChangeNotifier {
   Categories({this.id, this.name, this.imageUrl});
 
   List<String> categoryImages = [
-    "https://st2.depositphotos.com/6628792/9844/v/950/depositphotos_98443756-stock-illustration-knowledge-theme-icon.jpg",
+    "https://cdn.pixabay.com/photo/2014/11/24/18/50/mind-544404_960_720.png",
     "https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_960_720.jpg",
     "https://cdn.pixabay.com/photo/2013/11/28/10/02/photo-camera-219958_960_720.jpg",
     "https://cdn.pixabay.com/photo/2016/03/16/23/55/flea-market-1262036_960_720.jpg",

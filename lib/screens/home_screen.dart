@@ -4,9 +4,16 @@ import 'package:personality_app/widgets/result_display.dart';
 
 import '../widgets/menu_drawer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  static const routeName = '/home-screen';
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+   
   ///using global key for Opening Drawer.
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   Widget build(BuildContext context) {
     final divHeight = (MediaQuery.of(context).size.height / 2) * .60;
@@ -33,9 +40,8 @@ class HomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
               floating: true,
-              pinned: true,
+              // pinned: true,
               expandedHeight: divHeight,
-              stretch: true,
               shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(divHeight),
@@ -43,7 +49,26 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               flexibleSpace: FlexibleSpaceBar(
-                background: Center(child: Text('Hello')),
+                background: Container(
+                  margin: EdgeInsets.only(top: 25),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 60,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'USER NAME',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
             SliverList(
@@ -64,7 +89,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
 
 // ----------------------
 

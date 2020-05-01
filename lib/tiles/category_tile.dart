@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:personality_app/pages/build_category_page.dart';
 import 'package:personality_app/providers/categories.dart';
 import 'package:provider/provider.dart';
@@ -23,19 +24,27 @@ class CategoryTile extends StatelessWidget {
                     .buildCatPage(),
           ));
         },
-        child: GridTile(
-          child: Image.network(
-            currentCategory.imageUrl,
-            fit: BoxFit.cover,
-          ),
-          footer: GridTileBar(
-            backgroundColor: Colors.black87,
-            title: Text(
-              currentCategory.name,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.visible,
-              style: TextStyle(fontSize: 18),
-              softWrap: true,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: GridTile(
+            child: Image.network(
+              currentCategory.imageUrl,
+              fit: BoxFit.cover,
+            ),
+            footer: GridTileBar(
+              backgroundColor: Theme.of(context).primaryColor,
+              title: Text(
+                currentCategory.name,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.visible,
+                style: GoogleFonts.ptSerif(
+                  textStyle: TextStyle(
+                      fontSize: 18,
+                      // color: Theme.of(context).textSelectionColor,
+                      color: Colors.white),
+                ),
+                softWrap: true,
+              ),
             ),
           ),
         ),

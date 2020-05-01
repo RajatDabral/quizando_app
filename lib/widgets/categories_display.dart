@@ -16,11 +16,7 @@ class CategoriesDisplay extends StatelessWidget {
       children: <Widget>[
         Text(
           "Categories",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25.0,
-            letterSpacing: 1.2,
-          ),
+          style: Theme.of(context).textTheme.headline6,
         ),
         SizedBox(
           height: 10,
@@ -52,7 +48,11 @@ class CategoriesDisplay extends StatelessWidget {
         GestureDetector(
           child: Text(
             "See all",
-            style: TextStyle(fontSize: 20.0),
+            style: TextStyle(
+              fontSize: 20,
+              color: Theme.of(context).primaryColor,
+              fontWeight: FontWeight.w600
+            ),
           ),
           onTap: () {
             Navigator.of(context).pushNamed(CategorySelectScreen.routeName);
